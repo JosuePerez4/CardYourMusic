@@ -14,17 +14,21 @@ public class Artista {
     
     private String id;
     private String nombre;
-    private ArrayList <Album> albumes;
-    private ArrayList <Cancion> canciones;
+    private String albumes;
+    private String canciones;
     
     public Artista() {
     }
 
-    public Artista(String id, String nombre) {
+    public Artista(String id) {
+        this.id = id;
+    }
+
+    public Artista(String id, String nombre, String albumes, String canciones) {
         this.id = id;
         this.nombre = nombre;
-        this.albumes = new ArrayList();
-        this.canciones = new ArrayList<>();
+        this.albumes = albumes;
+        this.canciones = canciones;
     }
     
     public String getId() {
@@ -42,20 +46,25 @@ public class Artista {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public ArrayList<Album> getAlbumes() {
+
+    public String getAlbumes() {
         return albumes;
     }
 
-    public void setAlbumes(ArrayList<Album> albumes) {
+    public void setAlbumes(String albumes) {
         this.albumes = albumes;
     }
 
-    public ArrayList<Cancion> getCanciones() {
+    public String getCanciones() {
         return canciones;
     }
 
-    public void setCanciones(ArrayList<Cancion> canciones) {
+    public void setCanciones(String canciones) {
         this.canciones = canciones;
+    }
+
+    @Override
+    public String toString() {
+        return "Artista{" + "id=" + id + ", nombre=" + nombre + ", albumes=" + albumes + ", canciones=" + canciones + '}';
     }
 }

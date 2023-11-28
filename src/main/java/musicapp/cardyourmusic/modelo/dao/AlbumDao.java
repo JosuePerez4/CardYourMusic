@@ -21,7 +21,7 @@ public class AlbumDao implements AlbumServices {
 
     private final String SQL_CONSULTA = "SELECT * FROM Album";
     private final String SQL_CONSULTAID = "SELECT * FROM Album WHERE id = ?";
-    private final String SQL_INSERTAR = "INSERT INTO Album (id, nombre, diaSalida, mesSalida, añoSalida, calificacion) VALUES (NULL, ?, ?, ?, ?, ?)";
+    private final String SQL_INSERTAR = "INSERT INTO Album (id, nombre, diaSalida, mesSalida, añoSalida, calificacion) VALUES (?, ?, ?, ?, ?, ?)";
     private final String SQL_BORRAR = "DELETE FROM Album WHERE id = ?";
     private final String SQL_ACTUALIZAR = "UPDATE Album SET name = ?, postingDay = ?, postingMonth = ?, postingYear = ?, rating = ? WHERE id = ?";
 
@@ -55,7 +55,8 @@ public class AlbumDao implements AlbumServices {
         try {
             BaseDeDatos bd = BaseDeDatos.getInstace();
             Connection connection = bd.getConection();
-            PreparedStatement stm = connection.prepareStatement(SQL_CONSULTAID);
+            PreparedStatement stm = connection.prepareStatement(SQL_CONSULTAID, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.TYPE_FORWARD_ONLY);
+            stm.setString(1, album.getId());
             ResultSet rs = stm.executeQuery();
             rs.absolute(1);
             String id = rs.getString("id");
@@ -78,11 +79,12 @@ public class AlbumDao implements AlbumServices {
             BaseDeDatos bd = BaseDeDatos.getInstace();
             Connection connection = bd.getConection();
             PreparedStatement stm = connection.prepareStatement(SQL_INSERTAR);
-            stm.setString(1, album.getNombre());
-            stm.setByte(2, album.getDiaSalida());
-            stm.setByte(3, album.getMesSalida());
-            stm.setByte(4, album.getAñoSalida());
-            stm.setBoolean(5, album.isCalificacion());
+            stm.setString(1, album.getId());
+            stm.setString(2, album.getNombre());
+            stm.setByte(3, album.getDiaSalida());
+            stm.setByte(4, album.getMesSalida());
+            stm.setByte(5, album.getAñoSalida());
+            stm.setBoolean(6, album.isCalificacion());
             registros = stm.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Mensaje: " + ex.getMessage());

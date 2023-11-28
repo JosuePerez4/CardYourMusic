@@ -21,6 +21,10 @@ public class Usuario {
     
     public Usuario() {
     }
+
+    public Usuario(String id) {
+        this.id = id;
+    }
     
     public Usuario(String id, String username, String email, String genero, String contraseña) {
         this.id = id;

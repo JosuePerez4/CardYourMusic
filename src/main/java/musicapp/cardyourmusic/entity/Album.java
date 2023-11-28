@@ -23,6 +23,10 @@ public class Album {
     public Album() {
     }
 
+    public Album(String id) {
+        this.id = id;
+    }
+
     public Album(String id, String nombre, byte diaSalida, byte mesSalida, byte añoSalida, boolean calificacion) {
         this.id = id;
         this.nombre = nombre;

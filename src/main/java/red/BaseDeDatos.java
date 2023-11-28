@@ -13,11 +13,10 @@ import org.apache.commons.dbcp2.BasicDataSource;
  * @author Universidad
  */
 public class BaseDeDatos {
-    
-        private static BasicDataSource bs = new BasicDataSource();
+
+    private static BasicDataSource bs = new BasicDataSource();
     private static BaseDeDatos instance;
     private final static String URL = "jdbc:mysql://54.147.25.136:3306/1152273?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    /*http://54.147.25.136/phpMyAdmin/index.php?route=/&route=%2F&db=1152273&table=Destino*/
     private final static String USERNAME = "test";
     private final static String PASSWORD = "test1_*";
 
@@ -36,8 +35,8 @@ public class BaseDeDatos {
         }
         return instance;
     }
-    
-    public Connection getConection () throws SQLException {
+
+    public Connection getConection() throws SQLException {
         return bs.getConnection();
     }
 }

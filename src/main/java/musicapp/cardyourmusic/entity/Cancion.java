@@ -17,6 +17,10 @@ public class Cancion {
     public Cancion() {
     }
 
+    public Cancion(String id) {
+        this.id = id;
+    }
+
     public Cancion(String id, String nombre, short tiempo, boolean calificacion) {
         this.id = id;
         this.nombre = nombre;

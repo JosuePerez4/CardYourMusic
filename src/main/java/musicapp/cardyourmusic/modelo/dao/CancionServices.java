@@ -12,7 +12,8 @@ import musicapp.cardyourmusic.entity.Cancion;
  * @author Universidad
  */
 public interface CancionServices {
-        public List<Cancion> consultar();
+
+    public List<Cancion> consultar();
 
     public Cancion consultarID(Cancion cancion);
 
@@ -21,5 +22,5 @@ public interface CancionServices {
     public int eliminar(Cancion cancion);
 
     public int actualizar(Cancion cancion);
-    
+
 }

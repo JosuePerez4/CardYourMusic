@@ -21,9 +21,9 @@ public class ArtistaDao implements ArtistaServices {
 
     private final String SQL_CONSULTA = "SELECT * FROM Artist";
     private final String SQL_CONSULTAID = "SELECT * FROM Artist WHERE id = ?";
-    private final String SQL_INSERTAR = "INSERT INTO Artist (id, nombre) VALUES (NULL, ?)";
+    private final String SQL_INSERTAR = "INSERT INTO Artist (id, name, albums, songs) VALUES (?, ?, ?, ?)";
     private final String SQL_BORRAR = "DELETE FROM Artist WHERE id = ?";
-    private final String SQL_ACTUALIZAR = "UPDATE Artist SET name = ? WHERE id = ?";
+    private final String SQL_ACTUALIZAR = "UPDATE Artist SET name = ?, albums = ?, songs = ? WHERE id = ?";
 
     @Override
     public List<Artista> consultar() {
@@ -36,7 +36,9 @@ public class ArtistaDao implements ArtistaServices {
             while (rs.next()) {
                 String id = rs.getString("id");
                 String nombre = rs.getString("name");
-                Artista artista = new Artista(id, nombre);
+                String albumes = rs.getString("albums");
+                String canciones = rs.getString("songs");
+                Artista artista = new Artista(id, nombre, albumes, canciones);
                 artistas.add(artista);
             }
         } catch (SQLException ex) {
@@ -51,12 +53,15 @@ public class ArtistaDao implements ArtistaServices {
         try {
             BaseDeDatos bd = BaseDeDatos.getInstace();
             Connection connection = bd.getConection();
-            PreparedStatement stm = connection.prepareStatement(SQL_CONSULTAID);
+            PreparedStatement stm = connection.prepareStatement(SQL_CONSULTAID, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.TYPE_FORWARD_ONLY);
+            stm.setString(1, artista.getId());
             ResultSet rs = stm.executeQuery();
             rs.absolute(1);
             String id = rs.getString("id");
             String nombre = rs.getString("name");
-            artistaResultado = new Artista(id, nombre);
+            String albumes = rs.getString("albums");
+            String canciones = rs.getString("songs");
+            artistaResultado = new Artista(id, nombre, albumes, canciones);
         } catch (SQLException ex) {
             System.out.println("Mensaje: " + ex.getMessage());
         }
@@ -70,7 +75,10 @@ public class ArtistaDao implements ArtistaServices {
             BaseDeDatos bd = BaseDeDatos.getInstace();
             Connection connection = bd.getConection();
             PreparedStatement stm = connection.prepareStatement(SQL_INSERTAR);
-            stm.setString(1, artista.getNombre());
+            stm.setString(1, artista.getId());
+            stm.setString(2, artista.getNombre());
+            stm.setString(3, artista.getAlbumes());
+            stm.setString(4, artista.getCanciones());
             registros = stm.executeUpdate();
         } catch (SQLException ex) {
             System.err.println("Mensaje: " + ex.getMessage());
@@ -95,7 +103,7 @@ public class ArtistaDao implements ArtistaServices {
 
     @Override
     public int actualizar(Artista artista) {
-                int registros = 0;
+        int registros = 0;
         try {
             BaseDeDatos bd = BaseDeDatos.getInstace();
             Connection connection = bd.getConection();

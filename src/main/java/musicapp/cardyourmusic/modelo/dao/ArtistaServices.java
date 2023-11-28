@@ -12,14 +12,14 @@ import musicapp.cardyourmusic.entity.Artista;
  * @author Dajo
  */
 public interface ArtistaServices {
-    
-        public List<Artista> consultar();
-    
+
+    public List<Artista> consultar();
+
     public Artista consultarID(Artista artista);
-    
-    public int crear (Artista artista); 
-    
+
+    public int crear(Artista artista);
+
     public int eliminar(Artista artista);
-    
-    public int actualizar (Artista artista);
+
+    public int actualizar(Artista artista);
 }
