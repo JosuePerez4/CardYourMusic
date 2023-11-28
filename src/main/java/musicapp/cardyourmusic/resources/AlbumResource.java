@@ -21,6 +21,7 @@ import musicapp.cardyourmusic.entity.Album;
  *
  * @author Dajo
  */
+@Path("Album")
 public class AlbumResource {
 
     AlbumController albumController = new AlbumController();

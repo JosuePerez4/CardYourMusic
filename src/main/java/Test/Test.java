@@ -18,9 +18,16 @@ public class Test {
      */
     public static void main(String[] args) {
         ArtistaDao artist = new ArtistaDao();
+        Artista artista = new Artista("2342", "tu", "sdas", "utit");
         Artista artista1 = new Artista("12331", "yo", "shi", "ño");
-        //int r = artist.crear(artista);
-        System.out.println("shi? " + artist.consultarID(artista1));
+        Artista artista2 = new Artista("2345", "dfs", "rere", "sdfs");
+        Artista artista3 = new Artista("5645", "fds", "dfs", "sdfw");
+       
+        System.out.println("yo: " + artist.crear(artista));
+        System.out.println("yo: " + artist.crear(artista1));
+        System.out.println("yo: " + artist.crear(artista2));
+        System.out.println("yo: " + artist.crear(artista3));
+
     }
-    
+
 }

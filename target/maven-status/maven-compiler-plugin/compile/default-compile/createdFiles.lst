@@ -5,6 +5,7 @@ red\BaseDeDatos.class
 controller\CancionController.class
 musicapp\cardyourmusic\entity\Usuario.class
 musicapp\cardyourmusic\entity\Artista.class
+musicapp\cardyourmusic\JakartaRestConfiguration.class
 musicapp\cardyourmusic\modelo\dao\UsuarioServices.class
 musicapp\cardyourmusic\resources\CancionResource.class
 controller\UsuarioController.class
@@ -12,6 +13,7 @@ musicapp\cardyourmusic\resources\ArtistaResource.class
 controller\ArtistaController.class
 musicapp\cardyourmusic\modelo\dao\CancionDao.class
 musicapp\cardyourmusic\modelo\dao\ArtistaServices.class
+musicapp\cardyourmusic\resources\JakartaEE10Resource.class
 musicapp\cardyourmusic\modelo\dao\AlbumServices.class
 musicapp\cardyourmusic\resources\AlbumResource.class
 Test\Test.class

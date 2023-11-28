@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"controller"},{"l":"musicapp.cardyourmusic"},{"l":"musicapp.cardyourmusic.entity"},{"l":"musicapp.cardyourmusic.modelo.dao"},{"l":"musicapp.cardyourmusic.resources"},{"l":"red"},{"l":"Test"}];updateSearchResults();

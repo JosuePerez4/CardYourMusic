@@ -21,6 +21,7 @@ import musicapp.cardyourmusic.entity.Usuario;
  *
  * @author Dajo
  */
+@Path("Usuarios")
 public class UsuarioResource {
 
     UsuarioController usuarioController = new UsuarioController();

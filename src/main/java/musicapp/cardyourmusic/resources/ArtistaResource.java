@@ -21,6 +21,8 @@ import musicapp.cardyourmusic.entity.Artista;
  *
  * @author Dajo
  */
+
+@Path("artistas")
 public class ArtistaResource {
 
     ArtistaController artistaController = new ArtistaController();
@@ -35,7 +37,7 @@ public class ArtistaResource {
     }
 
     @GET
-    @Path("/artistas/{id}")
+    @Path("/artista/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getArtistaId(@PathParam("id") String id) {
         Artista artista = new Artista(id);
@@ -44,7 +46,7 @@ public class ArtistaResource {
     }
 
     @POST
-    @Path("/artistas/")
+    @Path("/crearartista/")
     @Produces(MediaType.APPLICATION_JSON)
     public Response crear(Artista artista) {
         try {
@@ -56,7 +58,7 @@ public class ArtistaResource {
     }
 
     @DELETE
-    @Path("/artistas/{id}")
+    @Path("/borrarartista/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response borrar(@PathParam("id") String id) {
         Artista artista = new Artista(id);
