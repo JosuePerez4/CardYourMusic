@@ -16,7 +16,7 @@ public class BaseDeDatos {
 
     private static BasicDataSource bs = new BasicDataSource();
     private static BaseDeDatos instance;
-    private final static String URL = "jdbc:mysql://54.147.25.136:3306/1152273?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private final static String URL = "jdbc:mysql://3.95.231.187:3306/1152273?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private final static String USERNAME = "test";
     private final static String PASSWORD = "test1_*";
 
