@@ -21,7 +21,7 @@ import musicapp.cardyourmusic.entity.Cancion;
  *
  * @author Dajo
  */
-@Path("Cancion")
+@Path("Canciones")
 public class CancionResource {
 
     CancionController cancionController = new CancionController();
